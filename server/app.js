@@ -8,6 +8,8 @@ const server = require('http').createServer(app);
 
 app.use(bodyParser.json());
 
+app.use('/api', require('./routes'))
+
 const db = require('./db')
 
 const PORT = process.env.SERVER_PORT;
