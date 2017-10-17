@@ -1,10 +1,13 @@
 const router = require('express').Router();
+const contoller = require('../controllers/recurringBillCtrl');
 
-router.get('./recurringbill');
+router.get('/', contoller.getRecurringBills);
 
-router.post('/recurringBill');
+router.post('/', contoller.createRecurringBill);
 
-router.delete('/recurringBill');
+router.delete('/', contoller.deleteRecurringBill);
+
+router.put('/', contoller.editRecurringBill);
 
 
 module.exports = router;
