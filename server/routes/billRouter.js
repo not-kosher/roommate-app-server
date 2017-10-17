@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const controller = require('../controllers/billCtrl')
+const controller = require('../controllers/billCtrl');
 
 router.get('/', controller.getBills);
 
