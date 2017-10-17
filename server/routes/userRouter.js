@@ -4,7 +4,7 @@ router.post('/addUser');
 
 router.put('/:id/updateProfile');
 
-router.push('/:id/joinHouse');
+router.put('/:id/joinHouse');
 
 router.delete('/:id');
 
