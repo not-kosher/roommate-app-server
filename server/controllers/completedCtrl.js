@@ -3,7 +3,7 @@ module.exports = {
 
   },
 
-  postCompleted: (req, res) => {
+  createCompleted: (req, res) => {
 
   },
 

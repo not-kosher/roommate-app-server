@@ -3,7 +3,7 @@ module.exports = {
 
   },
 
-  postBill: (req, res) => {
+  createBill: (req, res) => {
 
   },
 

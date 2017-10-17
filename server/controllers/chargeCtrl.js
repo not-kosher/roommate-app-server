@@ -3,7 +3,7 @@ module.exports = {
 
   },
 
-  postCharge: (req, res) => {
+  createCharge: (req, res) => {
 
   },
 

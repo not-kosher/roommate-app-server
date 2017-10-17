@@ -3,7 +3,7 @@ const controller = require('../controllers/chargeCtrl');
 
 router.get('/', controller.getCharges);
 
-router.post('/', controller.postCharge);
+router.post('/', controller.createCharge);
 
 router.delete('/', controller.deleteCharge);
 

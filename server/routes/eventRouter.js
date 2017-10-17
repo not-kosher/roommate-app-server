@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const controller = require('../controllers/eventCtrl')
+const controller = require('../controllers/eventCtrl');
 
 router.get('/', controller.getEvents);
 
-router.post('/', controller.postEvent);
+router.post('/', controller.createEvent);
 
 router.delete('/', controller.deleteEvent);
 

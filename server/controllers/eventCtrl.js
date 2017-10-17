@@ -3,7 +3,7 @@ module.exports = {
 
   },
 
-  postEvent: (req, res) => {
+  createEvent: (req, res) => {
 
   },
 

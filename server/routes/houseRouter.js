@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const controller = require('../controllers/houseCtrl')
 
-router.post('/');
+router.get('/:houseId', controller.getHouse);
 
-router.delete('/:houseId');
+router.post('/', controller.createHouse);
 
-router.put('/:houseId');
+router.delete('/:houseId', controller.deleteHouse);
+
+router.put('/:houseId', controller.editHouse);
 
 module.exports = router;

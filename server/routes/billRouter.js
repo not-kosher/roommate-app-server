@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const controller = require('../controllers/billCtrl')
 
-router.get('/');
+router.get('/', controller.getBills);
 
-router.post('/');
+router.post('/', controller.createBill);
 
-router.delete('/');
+router.delete('/', controller.deleteBill);
+
+router.put('/', controller.editBill);
 
 module.exports = router;
