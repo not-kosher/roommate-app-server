@@ -1,7 +1,10 @@
 const router = require('express').Router();
+const controller = require('../controllers/completedCtrl');
 
-router.get('/');
+router.get('/', controller.getCompleted);
 
-router.post('/');
+router.post('/', controller.postCompleted);
+
+router.delete('/', controller.deleteCompleted);
 
 module.exports = router;

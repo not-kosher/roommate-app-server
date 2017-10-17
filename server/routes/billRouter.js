@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-router.get('./bill');
+router.get('/');
 
-router.post('/bill');
+router.post('/');
 
-router.delete('/bill');
+router.delete('/');
 
 module.exports = router;
