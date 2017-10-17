@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const controller = require('../controllers/houseCtrl')
+const controller = require('../controllers/houseCtrl');
 
 router.get('/:houseId', controller.getHouse);
 
