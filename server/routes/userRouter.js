@@ -1,11 +1,14 @@
 const router = require('express').Router();
+const controller = require('../controllers/userCtrl');
 
-router.post('/addUser');
+router.get('/:id', controller.getUser);
 
-router.put('/:id/updateProfile');
+router.post('/addUser', controller.createUser);
 
-router.put('/:id/joinHouse');
+router.put('/:id/updateProfile', controller.editUser);
 
-router.delete('/:id');
+router.put('/:id/joinHouse', controller.joinHouse);
+
+router.delete('/:id', controller.deleteUser);
 
 module.exports = router;
