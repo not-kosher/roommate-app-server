@@ -7,6 +7,8 @@ router.use('/roomies', require('./roomieRouter'));
 router.use('/events', require('./eventRouter'));
 router.use('/:houseId/tasks', require('./taskRouter'));
 router.use('/:houseId/completed', require('./completedRouter'));
-router.use('/:houseId/financials', require('./financialRouter'));
+router.use('/:houseId/bills', require('./billRouter'));
+router.use('/:houseId/recurringBills', require('./recurringBillRouter'));
+router.use('/:houseId/charges', require('./chargeRouter'));
 
 module.exports = router;
