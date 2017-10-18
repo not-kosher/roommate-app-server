@@ -1,11 +1,7 @@
-// import controllers on anj object
+const chatCtrl = require('../controllers/chatCtrl.js');
 
 const chatRouter = (io, client) => {
-  // join chat
-
-  // leave chat
-
-  // add chat message
+  client.on('addMessage', message => chatCtrl.addMessage(io, client, message));
 };
 
 module.exports = chatRouter;
