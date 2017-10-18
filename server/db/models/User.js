@@ -7,6 +7,7 @@ const User = db.define('user', {
   lastName: Sequelize.STRING,
   email: Sequelize.STRING,
   phone: Sequelize.INTEGER,
+  imageUrl: Sequelize.STRING,
 });
 
 module.exports = User;
