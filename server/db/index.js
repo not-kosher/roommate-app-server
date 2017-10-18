@@ -1,109 +1,42 @@
-
-const Sequelize = require('sequelize');
+const seedData = require('./seeding/house');
 const db = require('./config/index');
-// require('dotenv').config();
-// const seedData = require('./seeding/house');
-
-// const db = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-//   dialect: 'mysql',
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-// });
 
 const House = require('./models/House');
-// const House = db.define('house', {
-//   name: Sequelize.STRING,
-//   key: Sequelize.STRING,
-// });
-
 const User = require('./models/User');
-// // const User = db.define('user', {
-// //   username: Sequelize.STRING,
-// //   firstName: Sequelize.STRING,
-// //   lastName: Sequelize.STRING,
-// //   email: Sequelize.STRING,
-// //   phone: Sequelize.INTEGER,
-// // });
-
 const HouseNotification = require('./models/HouseNotification');
-// // const HouseNotification = db.define('housenotification', {
-// //   type: Sequelize.STRING,
-// //   text: Sequelize.STRING,
-// // });
-
 const Message = require('./models/Message');
-// // const Message = db.define('message', {
-// //   text: Sequelize.STRING,
-// // });
-
 const ShamePost = require('./models/ShamePost');
-// // const ShamePost = db.define('shamepost', {
-// //   text: Sequelize.STRING,
-// //   imageUrl: Sequelize.STRING,
-// // });
-
 const ShameComment = require('./models/ShameComment');
-// // const ShameComment = db.define('comment', {
-// //   text: Sequelize.STRING,
-// // });
-
 const CalendarEvent = require('./models/CalendarEvent');
-// // const CalendarEvent = db.define('calendarevent', {
-// //   text: Sequelize.STRING,
-// //   startDate: Sequelize.DATE,
-// //   endDate: Sequelize.DATE,
-// //   type: Sequelize.STRING,
-// // });
-
 const Task = require('./models/Task');
-// // const Task = db.define('task', {
-// //   text: Sequelize.STRING,
-// //   type: Sequelize.STRING,
-// // });
-
 const HouseHistory = require('./models/HouseHistory');
-// // const HouseHistory = db.define('househistory', {
-// //   text: Sequelize.STRING,
-// //   type: Sequelize.STRING,
-// // });
-
 const RecurringBill = require('./models/RecurringBill');
-// // const RecurringBill = db.define('recurringbill', {
-// //   text: Sequelize.STRING,
-// //   total: Sequelize.INTEGER,
-// //   dueDate: Sequelize.DATE,
-// // });
-
 const Bill = require('./models/Bill');
-// // const Bill = db.define('bill', {
-// //   text: Sequelize.STRING,
-// //   total: Sequelize.INTEGER,
-// //   dueDate: Sequelize.DATE,
-// // });
-
 const Charge = require('./models/Charge');
-// // const Charge = db.define('charge', {
-// //   total: Sequelize.INTEGER,
-// // });
 
+// define realtionships for users
 User.belongsTo(House);
 House.hasMany(User);
 
+// define realtionships for notifications
 HouseNotification.belongsTo(House);
 House.hasMany(HouseNotification);
 HouseNotification.belongsTo(User);
 User.hasMany(HouseNotification);
 
+// define realtionships for messages
 Message.belongsTo(House);
 House.hasMany(Message);
 Message.belongsTo(User);
 User.hasMany(Message);
 
+// define realtionships for shamepost
 ShamePost.belongsTo(House);
 House.hasMany(ShamePost);
 ShamePost.belongsTo(User);
 User.hasMany(ShamePost);
 
+// define realtionships for shamecomment
 ShameComment.belongsTo(House);
 House.hasMany(ShameComment);
 ShameComment.belongsTo(User);
@@ -111,11 +44,13 @@ User.hasMany(ShameComment);
 ShameComment.belongsTo(ShamePost);
 ShamePost.hasMany(ShameComment);
 
+// define realtionships for calendarevents
 CalendarEvent.belongsTo(House);
 House.hasMany(CalendarEvent);
 CalendarEvent.belongsTo(User);
 User.hasMany(CalendarEvent);
 
+// define realtionships for tasks
 Task.belongsTo(House);
 House.hasMany(Task);
 Task.belongsTo(User, {
@@ -128,16 +63,19 @@ Task.belongsTo(User, {
 });
 User.hasMany(Task);
 
+// define realtionships for househistory
 HouseHistory.belongsTo(House);
 House.hasMany(HouseHistory);
 HouseHistory.belongsTo(User);
 User.hasMany(HouseHistory);
 
+// define realtionships for recurringbill
 RecurringBill.belongsTo(House);
 House.hasMany(RecurringBill);
 RecurringBill.belongsTo(User);
 User.hasMany(RecurringBill);
 
+// define realtionships for bill
 Bill.belongsTo(House);
 House.hasMany(Bill);
 Bill.belongsTo(User, {
@@ -152,6 +90,7 @@ User.hasMany(Bill);
 Bill.belongsTo(RecurringBill);
 RecurringBill.hasMany(Bill);
 
+// define realtionships for charge
 Charge.belongsTo(User, {
   as: 'chargelenderId',
   foreignKey: 'lenderId',
@@ -173,15 +112,13 @@ db.sync()
   .catch(err => console.log(err));
 
 
-// const seed = (table) => {
-//   seedData.forEach((data) => {
-//     table.create(data)
-//       .then(() => console.log('data successfully seeded'))
-//       .catch(err => console.log('error seding data', err));
-//   });
-// };
+const seed = (table) => {
+  seedData.forEach((data) => {
+    table.create(data)
+      .then(() => console.log('data successfully seeded'))
+      .catch(err => console.log('error seding data', err));
+  });
+};
 
-// seed(House);
-
-// module.exports = db;
+seed(House);
 
