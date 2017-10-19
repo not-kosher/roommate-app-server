@@ -5,8 +5,7 @@ const User = db.define('user', {
   username: Sequelize.STRING,
   firstName: Sequelize.STRING,
   lastName: Sequelize.STRING,
-  email: Sequelize.STRING,
-  phone: Sequelize.INTEGER,
+  phone: Sequelize.STRING,
   imageUrl: Sequelize.STRING,
 });
 
