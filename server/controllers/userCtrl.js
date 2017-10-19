@@ -23,11 +23,18 @@ module.exports = {
       });
   },
 
-  deleteUser: (req, res) => {
-  },
-
   editUser: (req, res) => {
-
+    User.update(req.body, { where: { id: req.params.id } })
+      .then(() => {
+        res.send('Successfully updated user');
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+  
+  deleteUser: (req, res) => {
+  
   },
 
   joinHouse: (req, res) => {
