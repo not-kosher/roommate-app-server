@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const controller = require('../controllers/roomieCtrl');
 
-router.get('/', controller.getRoomies);
+router.get('/:houseId', controller.getRoomies);
 
-router.post('/', controller.addRoomie);
+// router.post('/', controller.addRoomie);
 
-router.delete('/', controller.deleteRoomie);
+router.put('/:userId', controller.deleteRoomie);
 
 module.exports = router;

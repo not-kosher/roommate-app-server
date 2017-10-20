@@ -1,4 +1,5 @@
 const seedData = require('./seeding/house');
+const userData = require('./seeding/userSeeds');
 const db = require('./config/index');
 
 const House = require('./models/House');
