@@ -1,7 +1,9 @@
 const chatCtrl = require('../controllers/chatCtrl.js');
 
 const chatRouter = (io, client) => {
-  client.on('addMessage', message => chatCtrl.addMessage(io, client, message));
+  client.on('addMessage', (houseId, messages) => {
+    chatCtrl.addMessage(io, client, messages);
+  });
 };
 
 module.exports = chatRouter;
