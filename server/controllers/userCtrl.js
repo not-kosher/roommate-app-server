@@ -35,7 +35,9 @@ module.exports = {
   },
   
   joinHouse: (req, res) => {
-    House.findOne({ where: { key: req.body.key } })
+    // for now join house based on house id
+    // still figuring out what key should be like
+    House.findOne({ where: { id: req.body.key } })
       .then((house) => {
         return User.update({ houseId: house.id }, { where: { id: req.params.id } });
       })
