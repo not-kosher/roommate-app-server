@@ -1,13 +1,13 @@
-const db = require('../../db/config');
+const Message = require('../../db/models/Message');
 
-const addMessage = (io, client, houseId, messages) => {
+const addChatMessage = (io, client, houseId, messages) => {
   console.log(`hit the add message ctrl with message: ${messages[0]}`);
   // emit to the houseId the message
-  io.to('houseId').emit('newChatMessage', messages);
+  io.to(houseId).emit('newChatMessage', messages);
 
   // add that message to the db...
   // message has houseId, userId, text
-  db.Message.create({
+  Message.create({
     houseId,
     userId: messages[0].user._id,
     text: messages[0].text,
@@ -17,5 +17,5 @@ const addMessage = (io, client, houseId, messages) => {
 };
 
 module.exports = {
-  addMessage,
+  addChatMessage,
 };
