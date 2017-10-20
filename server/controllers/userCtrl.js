@@ -1,4 +1,5 @@
 const User = require('../db/models/User');
+const House = require('../db/models/House');
 
 module.exports = {
   getUser: (req, res) => {
@@ -33,12 +34,21 @@ module.exports = {
       });
   },
   
+  joinHouse: (req, res) => {
+    House.findOne({ where: { key: req.body.key } })
+      .then((house) => {
+        return User.update({ houseId: house.id }, { where: { id: req.params.id } });
+      })
+      .then(() => {
+        res.send('Successfully joined house');
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+  
   deleteUser: (req, res) => {
   
-  },
-
-  joinHouse: (req, res) => {
-    
   },
 
 };
