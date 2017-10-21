@@ -5,7 +5,6 @@ module.exports = {
   getUser: (req, res) => {
     User.findOne({ where: { username: req.params.username } })
       .then((user) => {
-        console.log('Found user', user);
         res.send(user);
       })
       .catch((err) => {
