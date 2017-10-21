@@ -104,6 +104,8 @@ const setupDB = () => {
   User.hasMany(Charge);
   Charge.belongsTo(Bill);
   Bill.hasMany(Charge);
+  Charge.belongsTo(House);
+  House.hasMany(Charge);
 
   db.authenticate()
     .then(() => console.log('your database is A1'))
