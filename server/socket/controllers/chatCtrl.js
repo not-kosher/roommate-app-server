@@ -1,12 +1,8 @@
 const Message = require('../../db/models/Message');
 
 const addChatMessage = (io, client, houseId, messages) => {
-  console.log(`hit the add message ctrl with message: ${messages[0]}`);
-  // emit to the houseId the message
   io.to(houseId).emit('newChatMessage', messages);
 
-  // add that message to the db...
-  // message has houseId, userId, text
   Message.create({
     houseId,
     userId: messages[0].user._id,
