@@ -3,6 +3,7 @@ const router = require('express').Router();
 router.use('/users', require('./userRouter'));
 router.use('/houses', require('./houseRouter'));
 router.use('/notifications', require('./notificationRouter'));
+router.use('/:houseId/messages', require('./messageRouter'));
 router.use('/roomies', require('./roomieRouter'));
 router.use('/events', require('./eventRouter'));
 router.use('/:houseId/tasks', require('./taskRouter'));

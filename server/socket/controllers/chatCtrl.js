@@ -10,6 +10,7 @@ const addChatMessage = (io, client, houseId, messages) => {
   Message.create({
     houseId,
     userId: messages[0].user._id,
+    giftedId: messages[0]._id,
     text: messages[0].text,
   })
     .then(message => console.log(`Added new message to db: ${message}`))
