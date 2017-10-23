@@ -25,7 +25,7 @@ module.exports = {
     Notification.destroy({
       where: { id: req.body.id },
     })
-      .then(numDestroyed => res.send(numDestroyed))
+      .then(() => res.send())
       .catch(err => console.log(`FAILED to delete notification: ${err}`));
   },
 };
