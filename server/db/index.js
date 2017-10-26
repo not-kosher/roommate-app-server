@@ -114,15 +114,15 @@ const setupDB = () => {
     .catch(err => console.log(err));
 
 
-  const seed = (table) => {
-    seedData.forEach((data) => {
-      table.create(data)
-        .then(() => console.log('data successfully seeded'))
-        .catch(err => console.log('error seding data', err));
-    });
-  };
+  // const seed = (table) => {
+  //   seedData.forEach((data) => {
+  //     table.create(data)
+  //       .then(() => console.log('data successfully seeded'))
+  //       .catch(err => console.log('error seding data', err));
+  //   });
+  // };
 
-  seed(House);
+  // seed(House);
 };
 
 module.exports = setupDB;
