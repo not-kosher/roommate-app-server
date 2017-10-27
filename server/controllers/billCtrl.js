@@ -19,7 +19,7 @@ module.exports = {
         if (bill) {
           bill.destroy();
         }
-        res.send(200);
+        res.status(200).send(bill);
       })
       .catch(err => res.status(500).send(err));
   },

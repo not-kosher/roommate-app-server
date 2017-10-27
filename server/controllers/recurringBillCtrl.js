@@ -14,7 +14,7 @@ module.exports = {
   },
 
   deleteRecurringBill: (req, res) => {
-    RecurringBill.findOne({ where: {id: parseInt(req.params.billId) } })
+    RecurringBill.findOne({ where: { id: parseInt(req.params.billId) } })
       .then((bill) => {
         if (bill) {
           bill.destroy();

@@ -20,7 +20,7 @@ module.exports = {
         if (results) {
           results.forEach(charge => charge.destroy());
         }
-        res.send(200);
+        res.status(200).send(req.params.billId);
       })
       .catch(err => res.status(500).send(err));
   },
@@ -31,7 +31,7 @@ module.exports = {
         if (charge) {
           charge.destroy();
         }
-        res.send(200);
+        res.status(200).send(charge);
       })
       .catch(err => res.status(500).send(err));
   },
