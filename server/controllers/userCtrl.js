@@ -3,8 +3,10 @@ const House = require('../db/models/House');
 
 module.exports = {
   getUser: (req, res) => {
+    console.log('hit the getUser route');
     User.findOne({ where: { username: req.params.username } })
       .then((user) => {
+        console.log('found user and now sending');
         res.send(user);
       })
       .catch((err) => {
