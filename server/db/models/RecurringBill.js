@@ -3,7 +3,7 @@ const db = require('../config');
 
 const RecurringBill = db.define('recurringbill', {
   text: Sequelize.STRING,
-  total: Sequelize.INTEGER,
+  total: Sequelize.FLOAT,
   dueDate: Sequelize.DATE,
 });
 
