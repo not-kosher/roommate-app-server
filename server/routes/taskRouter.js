@@ -9,6 +9,6 @@ router.delete('/:taskId', controller.deleteTask);
 
 router.put('/', controller.editTask);
 
-router.put('/:id', controller.claimTask);
+router.put('/:taskId', controller.claimTask);
 
 module.exports = router;
