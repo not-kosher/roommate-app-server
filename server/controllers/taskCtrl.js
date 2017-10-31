@@ -29,7 +29,14 @@ module.exports = {
   },
 
   claimTask: (req, res) => {
-
+    Task.findOne({ where: { id: parseInt(req.params.taskId) } })
+    .then((task) => {
+      if (task) {
+        task.updateAttributes(req.body);
+      }
+      res.status(200).send(task);
+    })
+    .catch(err => res.status(500).send(err));
   },
 
 };
