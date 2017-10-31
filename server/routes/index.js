@@ -8,7 +8,7 @@ router.use('/notifications', require('./notificationRouter'));
 router.use('/messages', require('./messageRouter'));
 router.use('/roomies', require('./roomieRouter'));
 router.use('/events', require('./eventRouter'));
-router.use('/:houseId/tasks', require('./taskRouter'));
+router.use('/tasks', require('./taskRouter'));
 router.use('/:houseId/completed', require('./completedRouter'));
 router.use('/bills', require('./billRouter'));
 router.use('/recurringBills', require('./recurringBillRouter'));
