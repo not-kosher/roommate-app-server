@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 // ROUTES
 app.use('/api', require('./routes'));
 
+// send message to site in hopes they dont take it down
+app.get('/', (req, res) => {
+  res.send('We are useing this domain to run requests to our server through https. Please do not take this down.');
+});
+
 // SOCKET
 const io = require('socket.io')(server);
 const setupSocket = require('./socket');
