@@ -2,7 +2,10 @@ const Bill = require('../db/models/Bill.js');
 
 module.exports = {
   getBills: (req, res) => {
-    Bill.findAll({ where: { houseId: parseInt(req.params.houseId) } })
+    Bill.findAll({
+      where: { houseId: parseInt(req.params.houseId) },
+      order: [['dueDate', 'ASC']],
+    })
       .then(bills => res.send(bills))
       .catch(err => res.status(500).send(err));
   },
